@@ -1,0 +1,11 @@
+<p class="headers">
+  Listing Users
+</p>
+<table>
+  <%= for user <- @users do %>
+    <tr>
+      <td><b><%= first_name(user) %></b> (<%= user.id %>)</td>
+      <td class="view"><%= link("View", to: ~p"/users/#{user.id}") %></td>
+    </tr>
+  <% end %>
+</table>

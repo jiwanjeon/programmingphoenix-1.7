@@ -3,3 +3,11 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+.headers {
+  font-size: 3em
+}
+
+.view {
+  color: blue;
+  padding-left: 100px;
+}
