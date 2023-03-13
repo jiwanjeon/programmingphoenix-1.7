@@ -1,11 +1,38 @@
 <p class="headers">
   Listing Users
 </p>
+
+<section class="container">
+  <nav role="navigation">
+    <ul>
+      <%= if @current_user do %>
+        <li>
+          <%= @current_user.username %>
+        </li>
+        <li>
+          <%= link "Log out" , to: ~p"/sessions/{current_user.id}", method: :delete %>
+        </li>
+        <% else %>
+          <li>
+            <%= link "Register" , to: ~p"/users/new" %>
+          </li>
+          <li>
+            <%= link "Log in" , to: ~p"/sessions/new" %>
+          </li>
+          <% end %>
+    </ul>
+  </nav>
+</section>
+
 <table>
   <%= for user <- @users do %>
     <tr>
-      <td><b><%= first_name(user) %></b> (<%= user.id %>)</td>
-      <td class="view"><%= link("View", to: ~p"/users/#{user.id}") %></td>
+      <td><b>
+          <%= first_name(user) %>
+        </b> (<%= user.id %>)</td>
+      <td class="view">
+        <%= link("View", to: ~p"/users/#{user.id}") %>
+      </td>
     </tr>
-  <% end %>
+    <% end %>
 </table>
