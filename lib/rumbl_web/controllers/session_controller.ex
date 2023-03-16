@@ -17,7 +17,6 @@ defmodule RumblWeb.SessionController do
         conn,
         %{"session" => %{"username" => username, "password" => pass}}
       ) do
-      IO.inspect(conn)
     case Rumbl.Accounts.authenticate_by_username_and_pass(username, pass) do
       {:ok, user} ->
         conn
@@ -29,11 +28,6 @@ defmodule RumblWeb.SessionController do
         conn
         |> put_flash(:error, "Invalid username/password combination")
         |> render(:new, changeset: Accounts.change_registration(%User{}, %{}))
-
-      # {:error, %Ecto.Changeset{} = changeset} ->
-      #   conn
-      #   |> put_flash(:error, "Invalid username/password combination")
-      #   |> render(:new, changeset: changeset)
     end
   end
 

@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th> Url </th>
+    <th> Title </th>
+    <th> Description </th>
+  </tr>
+  <%= for video <- @videos do %>
+    <tr>
+      <td class="sectionCategory">
+        <%= video.url %>
+      </td>
+      <td class="sectionCategory">
+        <%= video.title %>
+      </td>
+      <td class="sectionCategory">
+        <%= video.description %>
+      </td>
+    </tr>
+    <% end %>
+</table>
+
+<td class="view">
+  <%= link "New Video" , to: ~p"/videos/new"%>
+</td>

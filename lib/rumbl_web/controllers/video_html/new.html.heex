@@ -1,0 +1,10 @@
+<h2 class="text-4xl">New User</h2>
+<.simple_form :let={f} for={@changeset} action={~p"/videos"}>
+
+  <.input field={f[:url]} type="text" label="Url" />
+  <.input field={f[:title]} type="text" label="Title" />
+  <.input field={f[:description]} type="text" label="Description" />
+  <:actions>
+    <.button>Save User</.button>
+  </:actions>
+</.simple_form>
